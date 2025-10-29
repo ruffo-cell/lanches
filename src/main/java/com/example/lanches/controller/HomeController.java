@@ -17,5 +17,19 @@ public class HomeController {
     public String cardapio(Model model) {
         return "cardapio";
     }
+
+    @GetMapping("/promocoes")
+    public String promocoes(Model model) { return "promocoes";}
+
+    @GetMapping("/pedido")
+    public String pedido(Model model) { return "pedido";}
+
+    @GetMapping("/contato")
+    public String contato(Model model) {return "contato";}
+
+    @GetMapping("/privacidade")
+    public String privacidade(Model model) {return "privacidade";}
+
+
 }
 
