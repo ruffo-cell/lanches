@@ -17,14 +17,53 @@
 
 
     <link rel="stylesheet" href="/css/style.css">
-</head>
+
+    <style>
+        /* CORRIGINDO O MENU */
+        .navbar-lanche {
+            background-color: #D32F2F; /* AQUI está o vermelho */
+            padding-top: 15px;
+            padding-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo da Marca/Logo */
+        .navbar-lanche .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+
+        /* Ícone dourado */
+        .navbar-lanche .navbar-brand i {
+            color: #FFD700;
+        }
+
+        /* Links do menu */
+        .navbar-lanche .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 600;
+            margin: 0 8px;
+        }
+
+        /* Efeito ao passar o mouse */
+        .navbar-lanche .nav-link:hover,
+        .navbar-lanche .nav-link.active {
+            color: #FFD700 !important;
+        }
+    </style>
+</head> ```
+
+
+
 
 <body class="d-flex flex-column min-vh-100">
 
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
     <div class="container">
         <a class="navbar-brand" href="/">Lanche<i class="bi bi-person-video"></i>Rápido</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -58,3 +97,5 @@
 </nav>
 
 <div id="inicio" class="page active flex-grow-1 container" >
+
+
