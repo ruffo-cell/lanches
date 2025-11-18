@@ -34,3 +34,13 @@ footer a:hover {
   margin-right: .5rem;
 }
 
+/* Força a cor AMARELA apenas nos itens de navegação */
+    .navbar-nav .nav-link {
+        color: #ffff00 !important; /* Amarelo Ouro */
+    }
+
+    /* Cor quando passa o mouse ou item ativo */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #FFFF00 !important; /* Amarelo mais brilhante */
+    }
