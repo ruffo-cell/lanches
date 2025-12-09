@@ -1,5 +1,94 @@
 <#include "layouts/header.html">
 
-<h2>Pagina inicial</h2>
+<div class="container mt-5 text-center">
+    <h2>Bem-vindo ao nosso Cardápio Online</h2>
+    <p class="lead">Escolha seu lanche favorito e peça agora!</p>
+    <a href="/cardapio" class="btn btn-lg btn-warning mt-3">Ver Cardápio Completo</a>
+</div>
+<br><br>
+
+<style>
+    body {
+        background-color: #1a1a1a; /* Fundo quase preto */
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+    }
+
+    .container {
+        background-color: #2c2c2c; /* Cinza escuro */
+        border-radius: 8px;
+        padding: 50px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra suave */
+        max-width: 1200px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    h2 {
+        color: #ffb74d; /* Laranja suave */
+        letter-spacing: 2px;
+        border-bottom: 1px solid #ffb74d;
+        padding-bottom: 15px;
+        display: inline-block;
+    }
+
+    p.lead {
+        color: #cccccc;
+        font-style: italic;
+        margin-top: 20px;
+    }
+
+    .btn-warning {
+        background-color: transparent;
+        color: #ffb74d;
+        border: 2px solid #ffb74d;
+        padding: 12px 40px;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+</style>
+
+<div id="carouselLanchesHome" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselLanchesHome" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselLanchesHome" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselLanchesHome" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active" data-bs-interval="2000">
+            <img src="/img/banner%201.jpg" class="d-block w-100" alt="Promoção de Lanche 1" style="height: 500px; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>As Melhores Ofertas!</h5>
+                <p>Aproveite nossos preços especiais.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="/img/banner%202.jpg" class="d-block w-100" alt="Promoção de Lanche 2" style="height: 500px; object-fit: cover;">
+        </div>
+
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="/img/banner%203.1.jpg" class="d-block w-100" alt="Promoção de Lanche 3" style="height: 500px; object-fit: cover;">
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselLanchesHome" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselLanchesHome" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+    </button>
+</div>
+
+
 
 <#include "layouts/footer.html">

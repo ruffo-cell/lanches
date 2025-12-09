@@ -1,5 +1,215 @@
 <#include "layouts/header.html">
 
-<h2>Cardapio</h2>
+<style>
+    /* Estilos específicos para o Cardápio Dark */
+    body {
+        background-color: #1a1a1a;
+        color: white;
+    }
 
-<#include "layouts/footer.html">
+    h2.titulo-pagina {
+        color: #ffb74d;
+        text-align: center;
+        margin: 40px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #ffb74d;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    /* Estilo do Cartão do Lanche */
+    .card-lanche {
+        background-color: #2c2c2c;
+        border: 1px solid #444;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%; /* Garante que todos tenham a mesma altura */
+        overflow: hidden;
+    }
+
+    /* Efeito ao passar o mouse (Hover) */
+    .card-lanche:hover {
+        transform: translateY(-5px); /* Sobe um pouquinho */
+        box-shadow: 0 10px 20px rgba(255, 183, 77, 0.2); /* Sombra laranja suave */
+        border-color: #ffb74d;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover; /* Garante que a imagem não distorça */
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .card-title {
+        color: #ffb74d;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        color: #ccc;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        min-height: 40px; /* Mantém alinhamento mesmo com textos curtos */
+    }
+
+    .preco {
+        font-size: 1.5rem;
+        color: #fff;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .btn-pedir {
+        background-color: #ffb74d;
+        color: #1a1a1a;
+        font-weight: bold;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        text-transform: uppercase;
+    }
+
+    .btn-pedir:hover {
+        background-color: #e6a030;
+        color: #000;
+    }
+</style>
+
+<div class="container mb-5">
+
+    <div class="text-center">
+        <h2 class="titulo-pagina">Nosso Cardápio</h2>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/ham%202.jpg" class="card-img-top" alt="X-Tudo">
+                <div class="card-body">
+                    <h5 class="card-title">X-Tudo Monstro</h5>
+                    <p class="card-text">Pão, 2 hambúrgueres, ovo, bacon, presunto, queijo, alface e tomate.</p>
+                    <span class="preco">R$ 32,00</span>
+                    <a href="/pedido?item=x-tudo" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/x%20bacon.jpg" class="card-img-top" alt="X-Bacon">
+                <div class="card-body">
+                    <h5 class="card-title">X-Bacon Crocante</h5>
+                    <p class="card-text">Pão brioche, hambúrguer 180g, muito bacon crocante e queijo cheddar.</p>
+                    <span class="preco">R$ 28,50</span>
+                    <a href="/pedido?item=x-bacon" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/x%20salada.jpg" class="card-img-top" alt="X-Salada">
+                <div class="card-body">
+                    <h5 class="card-title">X-Salada Clássico</h5>
+                    <p class="card-text">O clássico leve. Pão, carne artesanal, queijo prato, alface americana e tomate.</p>
+                    <span class="preco">R$ 22,00</span>
+                    <a href="/pedido?item=x-salada" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/x%20egesp.jpg" class="card-img-top" alt="X-Egg">
+                <div class="card-body">
+                    <h5 class="card-title">X-Egg Especial</h5>
+                    <p class="card-text">Pão, carne suculenta, 2 ovos fritos, queijo mussarela e maionese da casa.</p>
+                    <span class="preco">R$ 24,00</span>
+                    <a href="/pedido?item=x-egg" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/duplo.jpg" class="card-img-top" alt="Smash Duplo">
+                <div class="card-body">
+                    <h5 class="card-title">Smash Duplo Cheddar</h5>
+                    <p class="card-text">Dois hambúrgueres smash prensados na chapa com dobro de cheddar cremoso.</p>
+                    <span class="preco">R$ 30,00</span>
+                    <a href="/pedido?item=smash-duplo" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/x%20frango.jpg" class="card-img-top" alt="X-Frango">
+                <div class="card-body">
+                    <h5 class="card-title">X-Frango Supreme</h5>
+                    <p class="card-text">Filé de frango grelhado, catupiry original, milho e batata palha.</p>
+                    <span class="preco">R$ 26,00</span>
+                    <a href="/pedido?item=x-frango" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/nuggets.jpg" class="card-img-top" alt="Nuggets">
+                <div class="card-body">
+                    <h5 class="card-title">Nuggets</h5>
+                    <p class="card-text">2 salsichas, purê, vinagrete, milho, batata palha e queijo ralado.</p>
+                    <span class="preco">R$ 18,00</span>
+                    <a href="/pedido?item=hot-dog" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/batata.jpg" class="card-img-top" alt="Batata Frita">
+                <div class="card-body">
+                    <h5 class="card-title">Batata Frita Turbinada</h5>
+                    <p class="card-text">Porção generosa de batatas com cheddar e pedacinhos de bacon.</p>
+                    <span class="preco">R$ 25,00</span>
+                    <a href="/pedido?item=batata-frita" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/açai.jpg" class="card-img-top" alt="Açaí">
+                <div class="card-body">
+                    <h5 class="card-title">Açaí na Tigela (500ml)</h5>
+                    <p class="card-text">Açaí puro com banana, morango, leite condensado e granola.</p>
+                    <span class="preco">R$ 20,00</span>
+                    <a href="/pedido?item=acai" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-lanche">
+                <img src="/img/refri.jpg" class="card-img-top" alt="Refrigerante">
+                <div class="card-body">
+                    <h5 class="card-title">Refrigerante Lata</h5>
+                    <p class="card-text">Coca-Cola, Guaraná, Fanta ou Sprite. Bem gelado!</p>
+                    <span class="preco">R$ 6,00</span>
+                    <a href="/pedido?item=refrigerante" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+
+    </div> </div> <#include "layouts/footer.html">

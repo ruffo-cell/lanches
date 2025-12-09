@@ -19,12 +19,20 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <style>
-        /* CORRIGINDO O MENU */
-        .navbar-lanche {
-            background-color: #D32F2F; /* AQUI está o vermelho */
-            padding-top: 15px;
-            padding-bottom: 15px;
-            transition: all 0.3s ease;
+        body {
+            background-color: #1a1a1a; /* Fundo quase preto */
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .container {
+            background-color: #2c2c2c; /* Cinza escuro */
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra suave */
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
         }
 
         /* Estilo da Marca/Logo */
@@ -65,7 +73,18 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top ">
     <div class="container">
-        <a class="navbar-brand" href="/">Lanche<i class="bi bi-person-video mx-1 "></i>Rápido</a>
+        <a class="navbar-brand" href="/" style="text-decoration: none;">
+            <div style="font-family: 'Arial Black', 'Arial Bold', sans-serif; text-transform: uppercase; font-style: italic; display: flex; align-items: center; gap: 10px;">
+
+                <span style="font-size: 2.5rem; filter: drop-shadow(0px 0px 10px rgba(255, 69, 0, 0.8));">🍔</span>
+
+                <div style="line-height: 1;">
+                    <span style="display: block; color: #ffeb3b; font-size: 1.8rem; text-shadow: 3px 3px 0px #d32f2f, 0 0 15px #ff6f00;">LANCHE</span>
+                    <span style="display: block; color: #fff; font-size: 1rem; letter-spacing: 3px; background: #d32f2f; padding: 2px 5px; transform: skewX(-10deg);">RÁPIDO</span>
+                </div>
+            </div>
+        </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
