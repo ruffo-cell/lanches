@@ -128,32 +128,31 @@
             document.getElementById('lanche').value = "Eu quero um: " + lancheFormatado;
         }
     }
+function enviarZap() {
+        // Não precisa mais do event.preventDefault()
 
-    // 2. FUNÇÃO QUE ENVIA PARA O WHATSAPP
-    function enviarZap(event) {
-        event.preventDefault(); // Impede a página de recarregar
-        console.log("pedido")
-
-        // Pega os dados que o cliente digitou
         let nome = document.getElementById('nome').value;
         let lanche = document.getElementById('lanche').value;
         let endereco = document.getElementById('endereco').value;
         let pagamento = document.getElementById('pagamento').value;
 
-        // --- CONFIGURE SEU NÚMERO AQUI (Apenas números, com DDD) ---
+        // Validação simples: Se o nome ou lanche estiver vazio, avisa o cliente
+        if (nome === "" || lanche === "") {
+            alert("Por favor, preencha pelo menos seu Nome e o Pedido.");
+            return;
+        }
+
         let numeroTelefone = "5521988401272";
 
-        // Monta a mensagem (o \n serve para pular linha)
         let mensagem = `*NOVO PEDIDO DO SITE!* 🍔\n\n` +
             `*Nome:* ${nome}\n` +
             `*Pedido:* ${lanche}\n` +
             `*Endereço:* ${endereco}\n` +
             `*Pagamento:* ${pagamento}`;
 
-        // Transforma a mensagem em um link especial
         let url = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagem)}`;
-console.log(url)
-        // Abre o WhatsApp numa nova aba
+
+        // Abre na mesma aba (pode funcionar melhor no celular) ou nova aba
         window.open(url, '_blank');
     }
 </script>
