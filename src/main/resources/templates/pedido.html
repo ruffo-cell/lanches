@@ -106,6 +106,7 @@
         } catch (e) {
             console.log("Erro URL: " + e);
         }
+<<<<<<< HEAD
     };
 
     // 2. Função de Envio
@@ -142,6 +143,35 @@
             // COMPUTADOR: Usa web.whatsapp.com (Abre o site)
             window.open("https://web.whatsapp.com/send?phone=" + numero + "&text=" + textoCodificado, '_blank');
         }
+=======
+    }
+function enviarZap() {
+        // Não precisa mais do event.preventDefault()
+
+        let nome = document.getElementById('nome').value;
+        let lanche = document.getElementById('lanche').value;
+        let endereco = document.getElementById('endereco').value;
+        let pagamento = document.getElementById('pagamento').value;
+
+        // Validação simples: Se o nome ou lanche estiver vazio, avisa o cliente
+        if (nome === "" || lanche === "") {
+            alert("Por favor, preencha pelo menos seu Nome e o Pedido.");
+            return;
+        }
+
+        let numeroTelefone = "5521988401272";
+
+        let mensagem = `*NOVO PEDIDO DO SITE!* 🍔\n\n` +
+            `*Nome:* ${nome}\n` +
+            `*Pedido:* ${lanche}\n` +
+            `*Endereço:* ${endereco}\n` +
+            `*Pagamento:* ${pagamento}`;
+
+        let url = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagem)}`;
+
+        // Abre na mesma aba (pode funcionar melhor no celular) ou nova aba
+        window.open(url, '_blank');
+>>>>>>> 7a260e7dbbff82a03722d4ea2a0c9dfe40fccf3d
     }
 </script>
 
