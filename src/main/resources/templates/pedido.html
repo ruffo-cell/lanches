@@ -95,84 +95,50 @@
 </div>
 
 <script>
-    // 1. Carregar item da URL
-    window.onload = function() {
-        try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const item = urlParams.get('item');
-            if(item) {
-                document.getElementById('pedido').value = "1x " + item.replace(/-/g, ' ').toUpperCase();
-            }
-        } catch (e) {
-            console.log("Erro URL: " + e);
+    window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+        if (item) {
+            document.getElementById('pedido').value =
+                "1x " + item.replace(/-/g, ' ').toUpperCase();
         }
-<<<<<<< HEAD
     };
 
-    // 2. Função de Envio
     function dispararWhatsapp() {
-        var nome = document.getElementById('nome').value;
-        var pedido = document.getElementById('pedido').value;
-        var endereco = document.getElementById('endereco').value;
-        var pagamento = document.getElementById('pagamento').value;
+        const nome = document.getElementById('nome').value.trim();
+        const pedido = document.getElementById('pedido').value.trim();
+        const endereco = document.getElementById('endereco').value.trim();
+        const pagamento = document.getElementById('pagamento').value;
 
-        if(nome === "" || pedido === "" || endereco === "") {
+        if (!nome || !pedido || !endereco) {
             alert("⚠️ Preencha Nome, Pedido e Endereço!");
             return;
         }
 
-        var numero = "5521988401272";
+        const numero = "5521988401272";
 
-        var texto = "*NOVO PEDIDO* 🍔\n\n" +
+        const mensagem =
+            "*NOVO PEDIDO* 🍔\n\n" +
             "*Nome:* " + nome + "\n" +
             "*Pedido:* " + pedido + "\n" +
             "*Endereço:* " + endereco + "\n" +
             "*Pagamento:* " + pagamento;
 
-        var textoCodificado = encodeURIComponent(texto);
+        const texto = encodeURIComponent(mensagem);
 
-        // --- A MÁGICA ACONTECE AQUI ---
-
-        // Verifica se é celular (Android, iPhone, etc)
-        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         if (isMobile) {
-            // CELULAR: Usa whatsapp:// (Abre o App direto, sem navegador)
-            window.location.href = "whatsapp://send?phone=" + numero + "&text=" + textoCodificado;
+            window.location.href =
+                "whatsapp://send?phone=" + numero + "&text=" + texto;
         } else {
-            // COMPUTADOR: Usa web.whatsapp.com (Abre o site)
-            window.open("https://web.whatsapp.com/send?phone=" + numero + "&text=" + textoCodificado, '_blank');
+            window.open(
+                "https://web.whatsapp.com/send?phone=" + numero + "&text=" + texto,
+                "_blank"
+            );
         }
-=======
-    }
-function enviarZap() {
-        // Não precisa mais do event.preventDefault()
-
-        let nome = document.getElementById('nome').value;
-        let lanche = document.getElementById('lanche').value;
-        let endereco = document.getElementById('endereco').value;
-        let pagamento = document.getElementById('pagamento').value;
-
-        // Validação simples: Se o nome ou lanche estiver vazio, avisa o cliente
-        if (nome === "" || lanche === "") {
-            alert("Por favor, preencha pelo menos seu Nome e o Pedido.");
-            return;
-        }
-
-        let numeroTelefone = "5521988401272";
-
-        let mensagem = `*NOVO PEDIDO DO SITE!* 🍔\n\n` +
-            `*Nome:* ${nome}\n` +
-            `*Pedido:* ${lanche}\n` +
-            `*Endereço:* ${endereco}\n` +
-            `*Pagamento:* ${pagamento}`;
-
-        let url = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagem)}`;
-
-        // Abre na mesma aba (pode funcionar melhor no celular) ou nova aba
-        window.open(url, '_blank');
->>>>>>> 7a260e7dbbff82a03722d4ea2a0c9dfe40fccf3d
     }
 </script>
+
 
 <#include "layouts/footer.html">
