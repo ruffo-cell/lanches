@@ -92,6 +92,55 @@
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
+        <#-- INÍCIO DO LOOP: Para cada 'produto' dentro da lista 'produtos' -->
+        <#list produtos as produto>
+        <div class="col">
+            <div class="card card-lanche">
+
+                <#-- A imagem vem do banco. Ex: /img/x-tudo.jpg -->
+                <#-- Se a foto for nula, usa uma imagem padrão (opcional) -->
+                <img src="${produto.photo!''}" class="card-img-top" alt="${produto.name}">
+
+                <div class="card-body">
+                    <h5 class="card-title">${produto.name}</h5>
+
+                    <p class="card-text">${produto.description}</p>
+
+                    <#-- Formatação de moeda no FreeMarker -->
+                    <span class="preco">R$ ${produto.price?string("0.00")}</span>
+
+                    <#-- Botão com o ID do produto para identificar o pedido -->
+                    <a href="/pedido?id=${produto.id}" class="btn btn-pedir">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+    </#list>
+    <#-- FIM DO LOOP -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
         <div class="col">
             <div class="card card-lanche">
                 <img src="/img/ham%202.jpg" class="card-img-top" alt="X-Tudo">
@@ -101,141 +150,6 @@
                     <span class="preco">R$ 32,00</span>
                     <a href="/pedido?item=x-tudo" class="btn btn-pedir">Fazer Pedido</a>
                 </div>
-            </div>
-        </div>
+            </div> </div>
 
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/x%20bacon.jpg" class="card-img-top" alt="X-Bacon">
-                <div class="card-body">
-                    <h5 class="card-title">X-Bacon Crocante</h5>
-                    <p class="card-text">Pão brioche, hambúrguer 180g, muito bacon crocante e queijo cheddar.</p>
-                    <span class="preco">R$ 28,50</span>
-                    <a href="/pedido?item=x-bacon" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/x%20salada.jpg" class="card-img-top" alt="X-Salada">
-                <div class="card-body">
-                    <h5 class="card-title">X-Salada Clássico</h5>
-                    <p class="card-text">O clássico leve. Pão, carne artesanal, queijo prato, alface americana e tomate.</p>
-                    <span class="preco">R$ 22,00</span>
-                    <a href="/pedido?item=x-salada" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/x%20egesp.jpg" class="card-img-top" alt="X-Egg">
-                <div class="card-body">
-                    <h5 class="card-title">X-Egg Especial</h5>
-                    <p class="card-text">Pão, carne suculenta, 2 ovos fritos, queijo mussarela e maionese da casa.</p>
-                    <span class="preco">R$ 24,00</span>
-                    <a href="/pedido?item=x-egg" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/duplo.jpg" class="card-img-top" alt="Smash Duplo">
-                <div class="card-body">
-                    <h5 class="card-title">Smash Duplo Cheddar</h5>
-                    <p class="card-text">Dois hambúrgueres smash prensados na chapa com dobro de cheddar cremoso.</p>
-                    <span class="preco">R$ 30,00</span>
-                    <a href="/pedido?item=smash-duplo" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/x%20frango.jpg" class="card-img-top" alt="X-Frango">
-                <div class="card-body">
-                    <h5 class="card-title">X-Frango Supreme</h5>
-                    <p class="card-text">Filé de frango grelhado, catupiry original, milho e batata palha.</p>
-                    <span class="preco">R$ 26,00</span>
-                    <a href="/pedido?item=x-frango" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/nuggets.jpg" class="card-img-top" alt="Nuggets">
-                <div class="card-body">
-                    <h5 class="card-title">Nuggets</h5>
-                    <p class="card-text">2 salsichas, purê, vinagrete, milho, batata palha e queijo ralado.</p>
-                    <span class="preco">R$ 18,00</span>
-                    <a href="/pedido?item=hot-dog" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/batata.jpg" class="card-img-top" alt="Batata Frita">
-                <div class="card-body">
-                    <h5 class="card-title">Batata Frita Turbinada</h5>
-                    <p class="card-text">Porção generosa de batatas com cheddar e pedacinhos de bacon.</p>
-                    <span class="preco">R$ 25,00</span>
-                    <a href="/pedido?item=batata-frita" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/açai.jpg" class="card-img-top" alt="Açaí">
-                <div class="card-body">
-                    <h5 class="card-title">Açaí na Tigela (500ml)</h5>
-                    <p class="card-text">Açaí puro com banana, morango, leite condensado e granola.</p>
-                    <span class="preco">R$ 20,00</span>
-                    <a href="/pedido?item=acai" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/refri.jpg" class="card-img-top" alt="Refrigerante">
-                <div class="card-body">
-                    <h5 class="card-title">Refrigerante Lata</h5>
-                    <p class="card-text">Coca-Cola, Guaraná, Fanta ou Sprite. Bem gelado!</p>
-                    <span class="preco">R$ 6,00</span>
-                    <a href="/pedido?item=refrigerante" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="/img/sorvete.jpg" class="card-img-top" alt="X-Salada">
-                <div class="card-body">
-                    <h5 class="card-title">Sorvete</h5>
-                    <p class="card-text">O clássico leve. Pão, carne artesanal, queijo prato, alface americana e tomate.</p>
-                    <span class="preco">R$ 22,00</span>
-                    <a href="/pedido?item=x-salada" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-lanche">
-                <img src="img/salgados.jpg" class="card-img-top" alt="X-Salada">
-                <div class="card-body">
-                    <h5 class="card-title">Salgados</h5>
-                    <p class="card-text">O clássico leve. Pão, carne artesanal, queijo prato, alface americana e tomate.</p>
-                    <span class="preco">R$ 22,00</span>
-                    <a href="/pedido?item=x-salada" class="btn btn-pedir">Fazer Pedido</a>
-                </div>
-            </div>
-        </div>
-
-
-
-    </div> </div> <#include "layouts/footer.html">
+        <#include "layouts/footer.html">

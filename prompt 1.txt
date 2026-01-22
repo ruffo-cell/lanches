@@ -1,0 +1,18 @@
+já temos o h2 database como dependência.
+precisamos configura-lo como arquivo ( application.properties ).
+precisamos da tabela products com o seguinte modelo:
+
+
+id → chave primaria
+created_at → data de cadastro (current_timestamp)
+name → nome do produto
+description → descrição do produto
+photo → url da foto do produto
+price → preço normal do produto
+promo_price → preço do produto quando em promoção ou 0
+metadata → reservado para uso futuro
+
+
+
+aproveite e mostra o sql para cadastrar os produtos das imagens.
+as photo de cada produto estão em `src/main/resources/static/img` e o nome delas deixe em branco que preenchemos depois 
