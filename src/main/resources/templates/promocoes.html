@@ -1,40 +1,53 @@
 <#include "layouts/header.html">
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promoção da Lanchonete</title>
-   
-</head>
-<body>
 
-<div class="promo-card">
+<div class="container" style="padding-bottom: 50px;">
 
-    <div class="banner-header">
-        <div class="banner-tag">Oferta Relâmpago</div>
-        <h1>Promoção do Dia</h1>
-    </div>
+    <#-- VERIFICA SE EXISTEM PROMOÇÕES NA LISTA -->
+    <#if promocoes?has_content>
 
-    <div class="content">
-        <div class="img-placeholder">
-            [Foto do Lanche Aqui]
+    <#-- LOOP: Cria um cartão para cada produto em promoção -->
+    <#list promocoes as produto>
+    <div class="promo-card" style="margin-bottom: 30px;"> <#-- Adicionei margem para não colar um no outro -->
+
+        <div class="banner-header">
+            <div class="banner-tag">Oferta Relâmpago</div>
+            <h1>Promoção Imperdível</h1>
         </div>
 
-        <h2 class="product-title">Combo X-Tudo + Refri</h2>
-        <p class="description">
-            Pão brioche, 2 hambúrgueres artesanais, bacon crocante, ovo, alface e nosso molho especial. Acompanha lata 350ml.
-        </p>
+        <div class="content">
+            <div class="img-placeholder">
+                <#-- Exibe a imagem do banco. Se não tiver, não quebra -->
+                <img src="${produto.photo!''}" alt="${produto.name}" style="max-width: 100%; border-radius: 8px;">
+            </div>
 
-        <div class="price-tag">
-            <span>R$</span> 24,90
+            <h2 class="product-title">${produto.name}</h2>
+
+            <p class="description">
+                ${produto.description}
+            </p>
+
+            <div class="price-tag">
+                <#-- Exibe apenas o PREÇO PROMOCIONAL -->
+                <span>R$</span> ${produto.promoPrice?string("0.00")}
+            </div>
+
+            <#-- Botão leva para o pedido com o ID do produto -->
+            <a href="/pedido?id=${produto.id}" class="btn-pedir" style="text-decoration: none; display: inline-block; text-align: center;">Quero esse!</a>
         </div>
 
-        <button class="btn-pedir">Quero esse!</button>
     </div>
+</#list>
+
+<#-- BLOCO ELSE: Executado se NÃO houver nenhuma promoção -->
+<#else>
+<div style="text-align: center; color: white; margin-top: 50px;">
+    <h2>Poxa, não temos promoções ativas agora... 😕</h2>
+    <p>Mas nosso cardápio completo está cheio de delícias!</p>
+    <br>
+    <a href="/cardapio" class="btn-pedir" style="text-decoration: none; padding: 15px 30px; border-radius: 5px;">Ver Cardápio Completo</a>
+</div>
+</#if>
 
 </div>
-</body>
-</html>
 
 <#include "layouts/footer.html">

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -34,7 +35,13 @@ public class HomeController {
     }
 
     @GetMapping("/promocoes")
-    public String promocoes(Model model) { return "promocoes";}
+    public String promocoes(Model model) {
+        // Busca apenas produtos com promo_price > 0
+        List<Product> promos = productRepository.findByPromoPriceGreaterThan(BigDecimal.ZERO);
+
+        model.addAttribute("promocoes", promos);
+        return "promocoes";
+    }
 
     @GetMapping("/pedido")
     public String pedido(Model model) { return "pedido";}
